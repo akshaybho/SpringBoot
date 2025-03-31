@@ -1,9 +1,13 @@
 package jdbc_1;
 
+import JDBC_RowMapper.StudentRowMapper;
+import JDBC_classes.Student;
 import jdbc.SpringConfigFile;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
 
 public class App_1 {
 
@@ -63,6 +67,13 @@ public class App_1 {
         //-----SELECT OPERATION--------
 
         String select_sql_query = "SELECT *FROM student";
-        jt.query();
+        List<Student> std_list = jt.query(select_sql_query, new StudentRowMapper());
+        for(Student std : std_list)
+        {
+            System.out.println("Roll no : "+std.getRollno());
+            System.out.println("Name : "+std.getName());
+            System.out.println("Marks : "+std.getMarks());
+            System.out.println("----------------------------------------");
+        }
     }
 }
