@@ -6,15 +6,13 @@
 
     <!-- bean definitions here -->
 
-    <bean class="constructordi.Employee" id="emId">
-        <constructor-arg value="John"/>
-        <constructor-arg value="101"/> <!-- Integer value -->
+    <bean class = "circularDI.Student" id ="stdId">
+        <property name="teacher" ref = "teachId"/>
+
     </bean>
 
-    <bean class="constructordi.Company" id="cId">
-        <constructor-arg value="TechCorp"/>
-        <constructor-arg value="560001"/> <!-- Integer value -->
-        <constructor-arg ref="emId"/>
+    <bean class = "circularDI.Teacher" id ="teachId">
+        <property name="student" ref = "stdId"/>
 
     </bean>
 

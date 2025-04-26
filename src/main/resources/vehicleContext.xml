@@ -6,13 +6,13 @@
 
     <!-- bean definitions here -->
 
-    <bean class = "com.example.demo.Car" id ="carId">
+    <bean class = "setterdi.Car" id ="carId">
         <property name="carName" value = "Harrier"/>
         <property name="carNumber" value = "121"/>
         <property name="owner" value = "23"/>
     </bean>
 
-    <bean class = "com.example.demo.Vehicle" id ="vehId">
+    <bean class = "setterdi.Vehicle" id ="vehId">
         <property name="name" value = "Tata"/>
         <property name="number" value = "100"/>
         <property name="Car" ref = "carId"/>

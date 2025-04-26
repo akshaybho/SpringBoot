@@ -1,4 +1,4 @@
-package autowireXML;
+package listProperty;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("autowireContext.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applist.xml");
 
-        Student std = (Student) context.getBean("stdId");
+        Student std = context.getBean("stdId", Student.class);
         std.display();
     }
 }

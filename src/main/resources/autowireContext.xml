@@ -7,15 +7,14 @@
     <!-- bean definitions here -->
 
 
-    <bean class="autowirXML.Address" id = "addrId">
+    <bean class="autowireXML.Address" id = "address">
         <property name = "houseNo" value = "100"/>
         <property name = "city" value = "Pune"/>
-        <property name = "A-810" value = "411036"/>
+        <property name = "pincode" value = "411036"/>
     </bean>
 
-    <bean class="autowireXML.Student" id="stdId">
-        <property name = "houseNo" value = "Akshay"/>
+    <bean class="autowireXML.Student" id="stdId" autowire="byName">
+        <property name = "name" value = "Akshay"/>
         <property name = "rollNo" value = "109130"/>
-        <property name = "address" ref = "addrId"/>
     </bean>
 </beans>

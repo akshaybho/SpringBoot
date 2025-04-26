@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="src/main/resources/readFile.properties"/>
+    </bean>
+
+    <bean class = "readFile.Student" id ="stdId">
+        <property name="name" value="${student.name}"/>
+        <property name="rollno" value="${student.rollno}"/>
+        <property name="subjectMarks">
+            <map>
+                <entry key="FM" value="${student.subjectMarks.FM}"/>
+                <entry key="TOM" value="${student.subjectMarks.TOM}"/>
+                <entry key="SOM" value="${student.subjectMarks.SOM}"/>
+                <entry key="MATHS" value="${student.subjectMarks.MATHS}"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

@@ -1,4 +1,4 @@
-package com.example.demo;
+package constructordi;
 
 public class Company {
 

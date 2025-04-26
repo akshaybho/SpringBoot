@@ -1,6 +1,6 @@
 package main;
 
-import com.example.demo.Vehicle;
+import setterdi.Vehicle;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

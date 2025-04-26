@@ -1,7 +1,6 @@
 package main;
 
-import com.example.demo.Company;
-import com.example.demo.Vehicle;
+import constructordi.Company;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +14,4 @@ public class MainCompany {
         Company c = (Company)context.getBean("cId");
         c.display();
     }
-
-
-
 }
