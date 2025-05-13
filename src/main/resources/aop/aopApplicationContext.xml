@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Enable auto-proxying for aspects -->
+    <aop:aspectj-autoproxy/>
+
+    <!-- bean definitions here -->
+    <bean class="aop.BankTransaction" id="bankTransId"/>
+
+    <bean class="aop.LoggingAspect" id="logAspectId"/>
+
+    <bean class="aop.SecurityAspect" id="securityId"/>
+
+    <!-- AOP Configurations -->
+    <aop:config>
+        <aop:aspect ref="logAspectId">
+            <aop:pointcut expression="execution(* aop.BankTransaction.*(..))" id="btPointcuts"/>
+            <!--- *(..)- for all methods -->
+            <aop:before method="myLogging" pointcut-ref="btPointcuts"/>
+            <aop:after method="myAfterLog" pointcut-ref="btPointcuts"/>
+        </aop:aspect>
+
+        <aop:aspect ref="securityId">
+            <aop:pointcut expression="execution(* aop.BankTransaction.*(..))" id="btSecPointcuts"/>
+            <!--- *(..)- for all methods -->
+            <aop:before method="provideSecurity" pointcut-ref="btSecPointcuts"/>
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>
